@@ -1,0 +1,42 @@
+Year,Item_A,Item_B,Weight_Count,Weight_Avg_Sim
+2023,Beef with Bone (Average Quality),Mutton (Average Quality),7,0.7437368648602672
+2023,Beef with Bone (Average Quality),Shirting (Average Quality),5,0.5295232297968839
+2023,Cooked Beef at Average Hotel,Cooked Daal at Average Hotel,5,0.508811744186624
+2023,Cooking Oil DALDA or Other Similar,Vegetable Ghee DALDA/HABIB or Ot,8,0.6748133090714028
+2023,Cooking Oil DALDA or Other Similar B,Vegetable Ghee DALDA/HABIB or Oth,6,0.554957796116912
+2023,Curd (Dahi) Loose,Milk fresh (Un-boiled),12,0.8605125154049728
+2023,Gents Sandal Bata,Gents Sponge Chappal Bata,17,0.8945509879611485
+2023,Gents Sandal Bata,Ladies Sandal Bata,17,0.8945509879611485
+2023,Gents Sandal Bata,Rice Basmati Broken (Average Quality,16,0.8419303416104927
+2023,Gents Sponge Chappal Bata,Ladies Sandal Bata,17,1.0
+2023,Gents Sponge Chappal Bata,Rice Basmati Broken (Average Quality,16,0.9411764705882353
+2023,Gents Sponge Chappal Bata,Toilet Soap LIFEBUOY 115 gm,5,0.5108866166423959
+2023,Georgette (Average Quality),Lawn Printed Gul Ahmed/Al Karam,5,0.41972917577253055
+2023,Georgette (Average Quality),Shirting (Average Quality),7,0.5419711570142067
+2023,Georgette (Average Quality),Wheat Flour Bag,6,0.44722805275995936
+2023,Hi-Speed Diesel,Petrol Super,17,0.8956570111140275
+2023,Ladies Sandal Bata,Rice Basmati Broken (Average Quality,16,0.9411764705882353
+2023,Ladies Sandal Bata,Toilet Soap LIFEBUOY 115 gm,5,0.5108866166423959
+2023,Lawn Printed Gul Ahmed/Al Karam,"Long Cloth 57"" Gul Ahmed/Al Karam",10,0.576379269091133
+2023,Lawn Printed Gul Ahmed/Al Karam,Shirting (Average Quality),7,0.5250311975420111
+2023,Lawn Printed Gul Ahmed/Al Karam,Sufi Washing Soap 250 gm Cake,7,0.44735007179871067
+2023,Lawn Printed Gul Ahmed/Al Karam,Wheat Flour Bag,6,0.4071608884726239
+2023,"Long Cloth 57"" Gul Ahmed/Al Karam",Shirting (Average Quality),6,0.4660509483467898
+2023,Pulse Masoor (Washed),Pulse Moong (Washed),6,0.6346054004437505
+2023,Rice Basmati Broken (Average Quality,Toilet Soap LIFEBUOY 115 gm,5,0.5170185285420074
+2023,Sufi Washing Soap 250 gm Cake,Wheat Flour Bag,5,0.4375039545544016
+2024,Beef with Bone (Average Quality),Mutton (Average Quality),7,0.7461861094342344
+2024,Curd (Dahi) Loose,Milk fresh (Un-boiled),8,0.5618027728214705
+2024,Energy Saver Philips 14 Watt,Gas Charges upto 3.3719 MMBTU,5,0.30015081361089846
+2024,Gas Charges upto 3.3719 MMBTU,Match Box,5,0.3357121635992087
+2024,Ladies Sandal Bata,Vegetable Ghee DALDA/HABIB 2.5 kg,6,0.8014098140582978
+2024,Ladies Sandal Bata,Vegetable Ghee DALDA/HABIB or Ot,9,0.7063097107426973
+2024,Lawn Printed Gul Ahmed/Al Karam,"Long Cloth 57"" Gul Ahmed/Al Karam",5,0.4462023502102384
+2024,Vegetable Ghee DALDA/HABIB 2.5 kg,Vegetable Ghee DALDA/HABIB or Ot,5,0.6849260074959685
+2025,Chilies Powder NATIONAL 200 gm Packet,"Cooking Oil DALDA or Other Similar Brand (SN), 5 Litre Tin",5,0.36936988140449545
+2025,Chilies Powder NATIONAL 200 gm Packet,Vegetable Ghee DALDA/HABIB 2.5 kg Tin,5,0.39605355686974375
+2025,"Cooking Oil DALDA or Other Similar Brand (SN), 5 Litre Tin",Vegetable Ghee DALDA/HABIB 2.5 kg Tin,9,0.7473581636856342
+2025,Curd (Dahi) Loose,Milk fresh (Un-boiled),5,0.4055208347004252
+2025,Hi-Speed Diesel,Petrol Super,17,0.8599315267823188
+2025,Lawn Printed Gul Ahmed/Al Karam,"Long Cloth 57"" Gul Ahmed/Al Karam",6,0.46509417887773796
+2025,Vegetable Ghee DALDA/HABIB 2.5 kg Tin,Vegetable Ghee DALDA/HABIB or Other superior Quality 1 kg Pouch,7,0.6557868979679431
