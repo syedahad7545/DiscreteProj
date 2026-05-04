@@ -33,4 +33,3 @@ Based on the specific instructions provided by your instructor, here is what you
 2. **The Presentation:** A slide deck containing the highlights and analysis of your results. The very first slide **must** have your group members' names and roll numbers. 
 3. **The Video:** A YouTube link (included in your presentation) to an 8-minute maximum demonstration video. This video needs to visually compare how your graphs change when you tweak the thresholds, and explain how the "central" items shifted over the three years[cite: 81, 83, 86].
 
-Since you will be tackling this entirely in python, how are you currently planning to represent this graph in memory—are you leaning towards an adjacency matrix or an adjacency list for this specific dataset?
