@@ -1,4 +1,4 @@
-Year,Source,Target,Weight,Weight_Avg_Sim
+Year,From,To,Weight,Weight_Avg_Sim
 2024,Beef with Bone (Average Quality),Mutton (Average Quality),7,0.7461861094342344
 2024,Curd (Dahi) Loose,Milk fresh (Un-boiled),8,0.5618027728214705
 2024,Energy Saver Philips 14 Watt,Gas Charges upto 3.3719 MMBTU,5,0.30015081361089846

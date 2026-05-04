@@ -1,4 +1,4 @@
-Year,Source,Target,Weight,Weight_Avg_Sim
+Year,From,To,Weight,Weight_Avg_Sim
 2023,Beef with Bone (Average Quality),Mutton (Average Quality),7,0.7437368648602672
 2023,Beef with Bone (Average Quality),Shirting (Average Quality),5,0.5295232297968839
 2023,Cooked Beef at Average Hotel,Cooked Daal at Average Hotel,5,0.508811744186624
