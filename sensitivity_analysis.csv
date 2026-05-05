@@ -1,0 +1,10 @@
+Scenario,Year,Tau,K,Total_Edges
+Baseline,2023,0.85,5,26
+Baseline,2024,0.85,5,8
+Baseline,2025,0.85,5,7
+Strict,2023,0.9,8,6
+Strict,2024,0.9,8,0
+Strict,2025,0.9,8,1
+Loose,2023,0.8,3,78
+Loose,2024,0.8,3,34
+Loose,2025,0.8,3,25

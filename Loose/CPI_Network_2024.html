@@ -1,0 +1,170 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 800px;
+                 background-color: #222222;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+             #config {
+                 float: left;
+                 width: 400px;
+                 height: 600px;
+             }
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+            <div id="config"></div>
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "#2196F3", "font": {"color": "white"}, "id": "Gas Charges upto 3.3719 MMBTU", "label": "Gas Charges upto 3.3719 MMBTU", "shape": "dot", "size": 42, "title": "Gas Charges upto 3.3719 MMBTU\u003cbr\u003eDegree: 0.1818"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Bananas (Kela) Local", "label": "Bananas (Kela) Local", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Cooked Daal at Average Hotel", "label": "Cooked Daal at Average Hotel", "shape": "dot", "size": 10}, {"color": "#2196F3", "font": {"color": "white"}, "id": "Energy Saver Philips 14 Watt", "label": "Energy Saver Philips 14 Watt", "shape": "dot", "size": 28, "title": "Energy Saver Philips 14 Watt\u003cbr\u003eDegree: 0.0909"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Firewood Whole", "label": "Firewood Whole", "shape": "dot", "size": 10}, {"color": "#2196F3", "font": {"color": "white"}, "id": "Match Box", "label": "Match Box", "shape": "dot", "size": 28, "title": "Match Box\u003cbr\u003eDegree: 0.0909"}, {"color": "#2196F3", "font": {"color": "white"}, "id": "Mutton (Average Quality)", "label": "Mutton (Average Quality)", "shape": "dot", "size": 28, "title": "Mutton (Average Quality)\u003cbr\u003eDegree: 0.0909"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Tea Prepared Ordinary", "label": "Tea Prepared Ordinary", "shape": "dot", "size": 10}, {"color": "#2196F3", "font": {"color": "white"}, "id": "Ladies Sandal Bata", "label": "Ladies Sandal Bata", "shape": "dot", "size": 42, "title": "Ladies Sandal Bata\u003cbr\u003eDegree: 0.1818"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Mustard Oil (Average Quality)", "label": "Mustard Oil (Average Quality)", "shape": "dot", "size": 10}, {"color": "#2196F3", "font": {"color": "white"}, "id": "Vegetable Ghee DALDA/HABIB 2.5 kg", "label": "Vegetable Ghee DALDA/HABIB 2.5 kg", "shape": "dot", "size": 42, "title": "Vegetable Ghee DALDA/HABIB 2.5 kg\u003cbr\u003eDegree: 0.1818"}, {"color": "#2196F3", "font": {"color": "white"}, "id": "Vegetable Ghee DALDA/HABIB or Ot", "label": "Vegetable Ghee DALDA/HABIB or Ot", "shape": "dot", "size": 42, "title": "Vegetable Ghee DALDA/HABIB or Ot\u003cbr\u003eDegree: 0.1818"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Cooking Oil DALDA or Other Similar", "label": "Cooking Oil DALDA or Other Similar", "shape": "dot", "size": 10}, {"color": "#2196F3", "font": {"color": "white"}, "id": "Beef with Bone (Average Quality)", "label": "Beef with Bone (Average Quality)", "shape": "dot", "size": 28, "title": "Beef with Bone (Average Quality)\u003cbr\u003eDegree: 0.0909"}, {"color": "#2196F3", "font": {"color": "white"}, "id": "Curd (Dahi) Loose", "label": "Curd (Dahi) Loose", "shape": "dot", "size": 28, "title": "Curd (Dahi) Loose\u003cbr\u003eDegree: 0.0909"}, {"color": "#2196F3", "font": {"color": "white"}, "id": "Milk fresh (Un-boiled)", "label": "Milk fresh (Un-boiled)", "shape": "dot", "size": 28, "title": "Milk fresh (Un-boiled)\u003cbr\u003eDegree: 0.0909"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Powdered Milk NIDO 390 gm Polyba", "label": "Powdered Milk NIDO 390 gm Polyba", "shape": "dot", "size": 10}, {"color": "#2196F3", "font": {"color": "white"}, "id": "Lawn Printed Gul Ahmed/Al Karam", "label": "Lawn Printed Gul Ahmed/Al Karam", "shape": "dot", "size": 28, "title": "Lawn Printed Gul Ahmed/Al Karam\u003cbr\u003eDegree: 0.0909"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Georgette (Average Quality)", "label": "Georgette (Average Quality)", "shape": "dot", "size": 10}, {"color": "#2196F3", "font": {"color": "white"}, "id": "Long Cloth 57\" Gul Ahmed/Al Karam", "label": "Long Cloth 57\" Gul Ahmed/Al Karam", "shape": "dot", "size": 28, "title": "Long Cloth 57\" Gul Ahmed/Al Karam\u003cbr\u003eDegree: 0.0909"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Shirting (Average Quality)", "label": "Shirting (Average Quality)", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Gents Sandal Bata", "label": "Gents Sandal Bata", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Bread plain (Small Size)", "label": "Bread plain (Small Size)", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Chilies Powder NATIONAL 200 gm Pa", "label": "Chilies Powder NATIONAL 200 gm Pa", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Onions", "label": "Onions", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Wheat Flour Bag", "label": "Wheat Flour Bag", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Cooked Beef at Average Hotel", "label": "Cooked Beef at Average Hotel", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Toilet Soap LIFEBUOY 115 gm", "label": "Toilet Soap LIFEBUOY 115 gm", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Eggs Hen (Farm)", "label": "Eggs Hen (Farm)", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Tea Lipton Yellow Label 190 gm Pack", "label": "Tea Lipton Yellow Label 190 gm Pack", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Hi-Speed Diesel", "label": "Hi-Speed Diesel", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Petrol Super", "label": "Petrol Super", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Rice Basmati Broken (Average Qualit", "label": "Rice Basmati Broken (Average Qualit", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Rice IRRI-6/9 (Sindh/Punjab)", "label": "Rice IRRI-6/9 (Sindh/Punjab)", "shape": "dot", "size": 10}]);
+                  edges = new vis.DataSet([{"from": "Gas Charges upto 3.3719 MMBTU", "title": "Correlated in 3 cities", "to": "Bananas (Kela) Local", "value": 3, "width": 1}, {"from": "Gas Charges upto 3.3719 MMBTU", "title": "Correlated in 4 cities", "to": "Cooked Daal at Average Hotel", "value": 4, "width": 1}, {"from": "Gas Charges upto 3.3719 MMBTU", "title": "Correlated in 5 cities", "to": "Energy Saver Philips 14 Watt", "value": 5, "width": 1}, {"from": "Gas Charges upto 3.3719 MMBTU", "title": "Correlated in 4 cities", "to": "Firewood Whole", "value": 4, "width": 1}, {"from": "Gas Charges upto 3.3719 MMBTU", "title": "Correlated in 5 cities", "to": "Match Box", "value": 5, "width": 1}, {"from": "Gas Charges upto 3.3719 MMBTU", "title": "Correlated in 3 cities", "to": "Mutton (Average Quality)", "value": 3, "width": 1}, {"from": "Gas Charges upto 3.3719 MMBTU", "title": "Correlated in 4 cities", "to": "Tea Prepared Ordinary", "value": 4, "width": 1}, {"from": "Ladies Sandal Bata", "title": "Correlated in 6 cities", "to": "Mustard Oil (Average Quality)", "value": 6, "width": 1}, {"from": "Ladies Sandal Bata", "title": "Correlated in 8 cities", "to": "Vegetable Ghee DALDA/HABIB 2.5 kg", "value": 8, "width": 1}, {"from": "Ladies Sandal Bata", "title": "Correlated in 11 cities", "to": "Vegetable Ghee DALDA/HABIB or Ot", "value": 11, "width": 1}, {"from": "Vegetable Ghee DALDA/HABIB 2.5 kg", "title": "Correlated in 8 cities", "to": "Cooking Oil DALDA or Other Similar", "value": 8, "width": 1}, {"from": "Vegetable Ghee DALDA/HABIB 2.5 kg", "title": "Correlated in 5 cities", "to": "Mustard Oil (Average Quality)", "value": 5, "width": 1}, {"from": "Vegetable Ghee DALDA/HABIB 2.5 kg", "title": "Correlated in 9 cities", "to": "Vegetable Ghee DALDA/HABIB or Ot", "value": 9, "width": 1}, {"from": "Vegetable Ghee DALDA/HABIB or Ot", "title": "Correlated in 7 cities", "to": "Mustard Oil (Average Quality)", "value": 7, "width": 1}, {"from": "Beef with Bone (Average Quality)", "title": "Correlated in 10 cities", "to": "Mutton (Average Quality)", "value": 10, "width": 1}, {"from": "Curd (Dahi) Loose", "title": "Correlated in 9 cities", "to": "Milk fresh (Un-boiled)", "value": 9, "width": 1}, {"from": "Curd (Dahi) Loose", "title": "Correlated in 4 cities", "to": "Powdered Milk NIDO 390 gm Polyba", "value": 4, "width": 1}, {"from": "Milk fresh (Un-boiled)", "title": "Correlated in 4 cities", "to": "Powdered Milk NIDO 390 gm Polyba", "value": 4, "width": 1}, {"from": "Energy Saver Philips 14 Watt", "title": "Correlated in 4 cities", "to": "Cooked Daal at Average Hotel", "value": 4, "width": 1}, {"from": "Lawn Printed Gul Ahmed/Al Karam", "title": "Correlated in 4 cities", "to": "Georgette (Average Quality)", "value": 4, "width": 1}, {"from": "Lawn Printed Gul Ahmed/Al Karam", "title": "Correlated in 6 cities", "to": "Long Cloth 57\" Gul Ahmed/Al Karam", "value": 6, "width": 1}, {"from": "Lawn Printed Gul Ahmed/Al Karam", "title": "Correlated in 6 cities", "to": "Shirting (Average Quality)", "value": 6, "width": 1}, {"from": "Long Cloth 57\" Gul Ahmed/Al Karam", "title": "Correlated in 3 cities", "to": "Gents Sandal Bata", "value": 3, "width": 1}, {"from": "Long Cloth 57\" Gul Ahmed/Al Karam", "title": "Correlated in 3 cities", "to": "Shirting (Average Quality)", "value": 3, "width": 1}, {"from": "Bread plain (Small Size)", "title": "Correlated in 3 cities", "to": "Chilies Powder NATIONAL 200 gm Pa", "value": 3, "width": 1}, {"from": "Chilies Powder NATIONAL 200 gm Pa", "title": "Correlated in 4 cities", "to": "Onions", "value": 4, "width": 1}, {"from": "Chilies Powder NATIONAL 200 gm Pa", "title": "Correlated in 4 cities", "to": "Wheat Flour Bag", "value": 4, "width": 1}, {"from": "Cooked Beef at Average Hotel", "title": "Correlated in 4 cities", "to": "Cooked Daal at Average Hotel", "value": 4, "width": 1}, {"from": "Cooked Beef at Average Hotel", "title": "Correlated in 3 cities", "to": "Georgette (Average Quality)", "value": 3, "width": 1}, {"from": "Cooked Daal at Average Hotel", "title": "Correlated in 3 cities", "to": "Toilet Soap LIFEBUOY 115 gm", "value": 3, "width": 1}, {"from": "Eggs Hen (Farm)", "title": "Correlated in 4 cities", "to": "Tea Lipton Yellow Label 190 gm Pack", "value": 4, "width": 1}, {"from": "Tea Prepared Ordinary", "title": "Correlated in 3 cities", "to": "Shirting (Average Quality)", "value": 3, "width": 1}, {"from": "Hi-Speed Diesel", "title": "Correlated in 17 cities", "to": "Petrol Super", "value": 17, "width": 1}, {"from": "Rice Basmati Broken (Average Qualit", "title": "Correlated in 4 cities", "to": "Rice IRRI-6/9 (Sindh/Punjab)", "value": 4, "width": 1}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": true,
+        "filter": [
+            "physics"
+        ]
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+                  // if this network requires displaying the configure window,
+                  // put it in its div
+                  options.configure["container"] = document.getElementById("config");
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>
